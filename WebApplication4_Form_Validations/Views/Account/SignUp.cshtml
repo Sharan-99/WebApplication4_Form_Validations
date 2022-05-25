@@ -1,0 +1,76 @@
+﻿@model WebApplication4_Form_Validations.Models.RegistrationModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignUp</title>
+    <style type="text/css">
+        .error {
+            font-style:italic;
+            font-size:small;
+            color:red;
+        }
+        .label {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-style:oblique;
+            color:#808080;
+        }
+        .form-control {
+            padding:4px 7px 2px 4px;
+            border:1px solid #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Sign-Up</h1>
+        @using (Html.BeginForm("SignUp", "Account"))
+        {
+            @Html.LabelFor(s => s.FirstName,new {@class="label" }) <br />
+            @Html.EditorFor(s => s.FirstName, new {htmlAttributes=new {@class="form-control" } }) <br />
+            @Html.ValidationMessageFor(s => s.FirstName,"",new {@class="error"}) <br />
+
+            @Html.LabelFor(s => s.LastName) <br />
+            @Html.EditorFor(s => s.LastName) <br />
+            @Html.ValidationMessageFor(s => s.LastName, "", new { @class = "error" }) <br />
+
+            @Html.LabelFor(s => s.Email) <br />
+            @Html.EditorFor(s => s.Email) <br />
+            @Html.ValidationMessageFor(s => s.Email, "", new { @class = "error" }) <br />
+
+            @Html.LabelFor(s => s.PhoneNo) <br />
+            @Html.EditorFor(s => s.PhoneNo) <br />
+            @Html.ValidationMessageFor(s => s.PhoneNo, "", new { @class = "error" }) <br />
+
+            @Html.LabelFor(s => s.DateOfBirth) <br />
+            @Html.EditorFor(s => s.DateOfBirth) <br />
+            @Html.ValidationMessageFor(s => s.DateOfBirth, "", new { @class = "error" }) <br />
+
+            @Html.LabelFor(s => s.Age) <br />
+            @Html.EditorFor(s => s.Age) <br />
+            @Html.ValidationMessageFor(s => s.Age, "", new { @class = "error" }) <br />
+
+            @Html.LabelFor(s => s.Password) <br />
+            @Html.PasswordFor(s => s.Password, new {@class="form-control" }) <br />
+            @Html.ValidationMessageFor(s => s.Password, "", new { @class = "error" }) <br />
+
+            @Html.LabelFor(s => s.ConfirmPassword) <br />
+            @Html.EditorFor(s => s.ConfirmPassword) <br />
+            @Html.ValidationMessageFor(s => s.ConfirmPassword, "", new { @class = "error" }) <br />
+
+
+            <input type="submit" value="Signup" />
+
+        }
+    </div>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</body>
+</html>
